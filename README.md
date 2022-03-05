@@ -24,3 +24,4 @@ function Hello(){
 Assuming that you have supplied the HelloWorld component to ReactDOM.render, you should be able to see a div tag created in the browser
 
 <div> Hello </div>
+
