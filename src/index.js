@@ -1,17 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
 
+function Tweet(){
+return(
+  <div className="container">
+  <div className="tweet">
+    <CreateAvatar/>
+    Tweets
+    </div>
+    </div>
+
+)
+function CreateAvatar(){
+  return(
+    React.createElement('img',{src:'https://gravatar.com/avatar',className:'avatar'},null) 
+    //image does not return anything hence null
+  )
+}
+function Message(){
+  return(
+    React.createElement('div',{className:'message'},['This should be less than 140 characters'])
+  )
+}
+function NameWithHandle(){
+  return(
+    React.createElement([
+      'div',{className:'name-with-handle'}
+    ])
+  )
+}
+}
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Tweet />
   </React.StrictMode>,
   document.getElementById('root')
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+
+
