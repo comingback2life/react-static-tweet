@@ -5,9 +5,17 @@ import './index.css';
 function Tweet(){
 return(
   <div className="container">
-  <div className="tweet">
-    <CreateAvatar/>
-    Tweets
+      <div className="tweet">
+    {
+      React.createElement(CreateAvatar,null) //no props
+    }
+    {
+      React.createElement('div',{className:'content'},[
+        React.createElement(NameWithHandle,{className:'name-with-handle',key:'handleName'}),
+        React.createElement(Message,{key:'message'})
+
+      ])
+    }
     </div>
     </div>
 
@@ -25,10 +33,14 @@ function Message(){
 }
 function NameWithHandle(){
   return(
-    React.createElement([
-      'div',{className:'name-with-handle'}
-    ])
+    React.createElement(
+      'span',{},[
+        React.createElement('span',{className:'userName',key:'yourName'},'Your Name'),
+        React.createElement('span',{className:'handle', key:'yourHandle'},'@yourHandle'),
+      ]
+    )
   )
+  
 }
 }
 ReactDOM.render(
