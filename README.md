@@ -25,3 +25,6 @@ Assuming that you have supplied the HelloWorld component to ReactDOM.render, you
 
 <div> Hello </div>
 
+## Constraints
+
+I have refrained to use a lot of nesting hence I have written tags the regular way instead with React.createElement :100:
