@@ -50,10 +50,11 @@ function CreateButtons(){
   return(
     React.createElement(
       'div',{className:'utility-buttons'},[
-        React.createElement('span',{className:'time',key:'postTime'},'Last Posted 3 hours ago'),
+        React.createElement('span',{className:'time',key:'postTime'},'3 hours ago'),
         React.createElement('i',{className:' fa fa-heart like-button',key:'likeButton'},null),
         React.createElement('i',{className:'fa fa-retweet retweet-button',key:'retweet-button'},null),
-        React.createElement('i',{className:'fa fa-reply reply-button',key:'reply-button'},null)
+        React.createElement('i',{className:'fa fa-reply reply-button',key:'reply-button'},null),
+        React.createElement('i',{className:'fa fa-ellipsis more-options',key:'more-button'},null)
       ]
     )
   )
