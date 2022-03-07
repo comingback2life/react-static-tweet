@@ -42,3 +42,8 @@ code {
   color: #8899a6;
   font-size: 13px;
 }
+.utility-buttons{
+  display: flex;
+  justify-content: space-evenly;
+ margin-top: 20px;
+}

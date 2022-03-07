@@ -7,14 +7,18 @@ return(
   <div className="container">
       <div className="tweet">
     {
-      React.createElement(CreateAvatar,null) //no props
+      React.createElement(CreateAvatar,null) //no props, usually a key is supplied.
     }
     {
       React.createElement('div',{className:'content'},[
-        React.createElement(NameWithHandle,{className:'name-with-handle',key:'handleName'}),
-        React.createElement(Message,{key:'message'})
+        React.createElement(NameWithHandle,{key:'handleName'}),
+        React.createElement(Message,{key:'message'}),
+        React.createElement(CreateButtons,{key:'utilityButtons'})
 
       ])
+    }
+    {
+  
     }
     </div>
     </div>
@@ -41,6 +45,18 @@ function NameWithHandle(){
     )
   )
   
+}
+function CreateButtons(){
+  return(
+    React.createElement(
+      'div',{className:'utility-buttons'},[
+        React.createElement('span',{className:'time',key:'postTime'},'Last Posted 3 hours ago'),
+        React.createElement('i',{className:' fa fa-heart like-button',key:'likeButton'},null),
+        React.createElement('i',{className:'fa fa-retweet retweet-button',key:'retweet-button'},null),
+        React.createElement('i',{className:'fa fa-reply reply-button',key:'reply-button'},null)
+      ]
+    )
+  )
 }
 }
 ReactDOM.render(
