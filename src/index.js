@@ -7,10 +7,12 @@ return(
   <div className="container">
       <div className="tweet">
     {
-      React.createElement(CreateAvatar,null) //no props, usually a key is supplied.
+
+       React.createElement(CreateAvatar,null)//no props, usually a key is supplied.
     }
     {
       React.createElement('div',{className:'content'},[
+       
         React.createElement(NameWithHandle,{key:'handleName'}),
         React.createElement(Message,{key:'message'}),
         React.createElement(CreateButtons,{key:'utilityButtons'})
@@ -26,21 +28,21 @@ return(
 )
 function CreateAvatar(){
   return(
-    React.createElement('img',{src:'https://gravatar.com/avatar',className:'avatar'},null) 
-    //image does not return anything hence null
+    React.createElement('img',{src:(require('./harvey.jpeg')),className:'avatar'},null) 
+    //image does not return anything() hence null
   )
 }
 function Message(){
   return(
-    React.createElement('div',{className:'message'},['This should be less than 140 characters'])
+    React.createElement('div',{className:'message'},[`It's going to happen because I'm going to make it happen..`])
   )
 }
 function NameWithHandle(){
   return(
     React.createElement(
-      'span',{},[
-        React.createElement('span',{className:'userName',key:'yourName'},'Your Name'), //each element in React should have a unique key.
-        React.createElement('span',{className:'handle', key:'yourHandle'},'@yourHandle'),
+      'div',{className:'tweet-box'},[
+        React.createElement('span',{className:'userName',key:'yourName'},'Harvey Specter'), //each element in React should have a unique key.
+        React.createElement('span',{className:'handle', key:'yourHandle'},'@harveyspecter'),
       ]
     )
   )

@@ -11,40 +11,50 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+body{
+  background-color: #00b4d8;
+  }
 .container{
   display: flex;
   justify-content: center;
-  margin-top: 5vh;
+  margin-top: 30vh;
+}
+.content{
+  display: flex;
+  flex-direction: column;
+  padding:10px;
+}
+.tweet {
+  border: 2px solid #000000;
+  background: white;
+  border-radius: 10px;
+  font-size: 20px;
+  display: flex;
 }
 
-.tweet {
-  border: 1px solid #ccc;
-  width: 564px;
-  min-height: 68px;
-  padding: 10px;
-  display: flex;
-  font-family: "Helvetica", arial, sans-serif;
-  font-size: 14px;
-  line-height: 18px;
+.fa-heart{
+  color:red;
+}
+.fa-retweet{
+  color: #00b4d8;
 }
 .avatar {
-  width: 100px;
-  height: 100px;
-  border-radius: 5px;
-  margin-right: 10px;
+ display: flex;
+ padding: 1vh 2vh 1vh 1vh;
+ border-radius: 50%;
+ width: 10vh;
+ height: 10vh;
 }
-.name {
+.userName {
   font-weight: bold;
-  margin-bottom: 0.5em;
-  margin-right: 0.3em;
 }
-.handle {
+.handle{
   color: #8899a6;
-  font-size: 13px;
+  font-size: 15px;
 }
 .utility-buttons{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
  margin-top: 20px;
 }
 .time {
@@ -57,13 +67,6 @@ code {
   content: "\00b7";
   padding-right: 0.3em;
 }
-
-.buttons {
+.message{
   margin-top: 10px;
-  margin-left: 2px;
-  font-size: 1.4em;
-  color: #aab8c2;
-}
-.buttons i {
-  width: 80px;
 }
