@@ -47,3 +47,23 @@ code {
   justify-content: space-evenly;
  margin-top: 20px;
 }
+.time {
+  padding-left: 0.3em;
+  font-size:0.8rem;
+  color: #8899a6;
+}
+
+.time::before {
+  content: "\00b7";
+  padding-right: 0.3em;
+}
+
+.buttons {
+  margin-top: 10px;
+  margin-left: 2px;
+  font-size: 1.4em;
+  color: #aab8c2;
+}
+.buttons i {
+  width: 80px;
+}
