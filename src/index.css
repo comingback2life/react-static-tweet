@@ -22,7 +22,7 @@ body{
 .content{
   display: flex;
   flex-direction: column;
-  padding:10px;
+  padding:20px;
 }
 .tweet {
   border: 2px solid #000000;
@@ -41,7 +41,7 @@ body{
 .avatar {
  display: flex;
  padding: 1vh 2vh 1vh 1vh;
- border-radius: 50%;
+ border-radius: 30%;
  width: 10vh;
  height: 10vh;
 }

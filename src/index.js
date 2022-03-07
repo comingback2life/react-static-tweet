@@ -7,8 +7,7 @@ return(
   <div className="container">
       <div className="tweet">
     {
-
-       React.createElement(CreateAvatar,null)//no props, usually a key is supplied.
+       React.createElement(CreateAvatar,null) //no props, usually a key is supplied.
     }
     {
       React.createElement('div',{className:'content'},[
@@ -53,7 +52,7 @@ function CreateButtons(){
     React.createElement(
       'div',{className:'utility-buttons'},[
         React.createElement('span',{className:'time',key:'postTime'},'3 hours ago'),
-        React.createElement('i',{className:' fa fa-heart like-button',key:'likeButton'},null),
+        React.createElement('i',{className:' fa fa-heart like-button',key:'likeButton'},null), //i does not return anything hence null
         React.createElement('i',{className:'fa fa-retweet retweet-button',key:'retweet-button'},null),
         React.createElement('i',{className:'fa fa-reply reply-button',key:'reply-button'},null),
         React.createElement('i',{className:'fa fa-ellipsis more-options',key:'more-button'},null)
