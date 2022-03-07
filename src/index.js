@@ -35,7 +35,7 @@ function NameWithHandle(){
   return(
     React.createElement(
       'span',{},[
-        React.createElement('span',{className:'userName',key:'yourName'},'Your Name'),
+        React.createElement('span',{className:'userName',key:'yourName'},'Your Name'), //each element in React should have a unique key.
         React.createElement('span',{className:'handle', key:'yourHandle'},'@yourHandle'),
       ]
     )
