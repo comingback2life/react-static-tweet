@@ -10,7 +10,7 @@ var userTweet={
     authorName : 'Harvey Specter'
   },
   likes:2,
-  reTweets:0,
+  reTweets:30,
   postTime:'2020-04-10 1:45pm'
 };
 function Tweet({tweet}){ // tweet component accepts a props called tweet.
@@ -62,15 +62,18 @@ function CreateButtons({postEngagement}){ //destructuring postEngagement passed 
   return(
     React.createElement(
       'div',{className:'utility-buttons'},[
-        React.createElement('span',{className:'time',key:'postTime'},'3 hours ago'),
+        React.createElement('span',{className:'time',key:'postTime'},`${postEngagement.time}`), //you can pass it as a plain string as well.
         React.createElement('span',{className:'likeCount',key:'countLikes'},[`${postEngagement.likes}`,[
           React.createElement('i',{className:' fa fa-heart like-button',key:'likeButton'},null)
           ]]), //creating a element inside  within the span called likeCount with both likes and the heart symbol
           React.createElement('span',{className:'likeCount',key:'countLikes'},[`${postEngagement.reTweets}`,[
             React.createElement('i',{className:'fa fa-retweet retweet-button',key:'retweet-button'},null)
-            ]]),
-        React.createElement('i',{className:'fa fa-retweet retweet-button',key:'retweet-button'},null), //if i does not return anything null , if it has a children pass it 
-        React.createElement('i',{className:'fa fa-reply reply-button',key:'reply-button'},null),
+          ]]),
+          /*
+           React.createElement('i',{className:'fa fa-retweet retweet-button',key:'retweet-button'},null), //if i does not return anything null , if it has a children pass it 
+          */
+       
+        React.createElement('i',{className:'fa fa-reply reply-button',key:'reply-button'},[null]),
         React.createElement('i',{className:'fa fa-ellipsis more-options',key:'more-button'},null)
       ]
     )
