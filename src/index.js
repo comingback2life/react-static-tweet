@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
-function Tweet(){
+function Tweet({tweet}){ // tweet component accepts a props called tweet.
 return(
   <div className="container">
       <div className="tweet">
