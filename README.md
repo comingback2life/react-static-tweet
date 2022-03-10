@@ -1,5 +1,6 @@
 ## React Practise 
-
+ This is the dynamic version of our static tweet application. 
+ It demonstrates the use of props. 
 Using React.createElements to create HTML tags.
 
 The JSX tags can also be replaced with regular calls such as : 
