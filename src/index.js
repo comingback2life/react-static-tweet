@@ -2,6 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 
+var userTweet={
+  message : "It's going to happen because I'm going to make it happen..",
+  image : "./harvey.jpeg",
+  author:{
+    handle:'harveyspecter',
+    authorName : 'Harvey Specter'
+  },
+  likes:2,
+  retweets:0,
+  postTime:'2020-04-10 1:45pm'
+};
+
 function Tweet({tweet}){ // tweet component accepts a props called tweet.
 return(
   <div className="container">
@@ -13,7 +25,7 @@ return(
       React.createElement('div',{className:'content'},[
        
         React.createElement(NameWithHandle,{key:'handleName'}),
-        React.createElement(Message,{key:'message'}),
+        React.createElement(Message,{key:'message',message:`${userTweet.message}`}),
         React.createElement(CreateButtons,{key:'utilityButtons'})
 
       ])
@@ -31,9 +43,9 @@ function CreateAvatar(){
     //image does not return anything() hence null
   )
 }
-function Message(){
+function Message({message}){ //props are passed as an object hence, destructuring it in the function argument itself.
   return(
-    React.createElement('div',{className:'message'},[`It's going to happen because I'm going to make it happen..`])
+    React.createElement('div',{className:'message'},[`${message}`]) 
   )
 }
 function NameWithHandle(){
@@ -61,9 +73,11 @@ function CreateButtons(){
   )
 }
 }
+
+
 ReactDOM.render(
   <React.StrictMode>
-    <Tweet />
+    <Tweet tweet={userTweet} />
   </React.StrictMode>,
   document.getElementById('root')
 );
