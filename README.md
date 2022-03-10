@@ -9,4 +9,5 @@
 
 ## Takeaway from this version :100:
   The use of props and passing it through components
+  
   The new level of nesting introduced in the like buttons and retweet buttons.
