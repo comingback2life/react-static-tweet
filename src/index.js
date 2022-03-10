@@ -10,23 +10,21 @@ var userTweet={
     authorName : 'Harvey Specter'
   },
   likes:2,
-  retweets:0,
+  reTweets:0,
   postTime:'2020-04-10 1:45pm'
 };
-
 function Tweet({tweet}){ // tweet component accepts a props called tweet.
 return(
   <div className="container">
       <div className="tweet">
     {
-       React.createElement(CreateAvatar,null) //no props, usually a key is supplied.
+       React.createElement(CreateAvatar,{image:`${userTweet.image}`}) //no props, usually a key is supplied.
     }
     {
       React.createElement('div',{className:'content'},[
-       
-        React.createElement(NameWithHandle,{key:'handleName'}),
+        React.createElement(NameWithHandle,{key:'handleName',details:{authorName:`${userTweet.author.authorName}`,handle:`${userTweet.author.handle}`}}),
         React.createElement(Message,{key:'message',message:`${userTweet.message}`}),
-        React.createElement(CreateButtons,{key:'utilityButtons'})
+        React.createElement(CreateButtons,{key:'utilityButtons',postEngagement:{likes:`${userTweet.likes}`,reTweets:`${userTweet.reTweets}`,time:`${userTweet.postTime}`}})
 
       ])
     }
@@ -37,9 +35,9 @@ return(
     </div>
 
 )
-function CreateAvatar(){
+function CreateAvatar({image}){
   return(
-    React.createElement('img',{src:(require('./harvey.jpeg')),className:'avatar'},null) 
+    React.createElement('img',{src:(require(`${image}`)),className:'avatar'},null) 
     //image does not return anything() hence null
   )
 }
@@ -48,24 +46,30 @@ function Message({message}){ //props are passed as an object hence, destructurin
     React.createElement('div',{className:'message'},[`${message}`]) 
   )
 }
-function NameWithHandle(){
+function NameWithHandle(args){ //props can also be accepted in object form and destructured inside the function
   return(
     React.createElement(
       'div',{className:'tweet-box'},[
-        React.createElement('span',{className:'userName',key:'yourName'},'Harvey Specter'), //each element in React should have a unique key.
-        React.createElement('span',{className:'handle', key:'yourHandle'},'@harveyspecter'),
+        React.createElement('span',{className:'userName',key:'yourName'},[`${args.details.authorName}`]),  //authorName has been destructered from args which is passed an object containing details which is also an object
+        //each element in React should have a unique key.
+        React.createElement('span',{className:'handle', key:'yourHandle'},[` @${args.details.handle}`]),
       ]
     )
   )
   
 }
-function CreateButtons(){
+function CreateButtons({postEngagement}){ //destructuring postEngagement passed as an object  to this
   return(
     React.createElement(
       'div',{className:'utility-buttons'},[
         React.createElement('span',{className:'time',key:'postTime'},'3 hours ago'),
-        React.createElement('i',{className:' fa fa-heart like-button',key:'likeButton'},null), //i does not return anything hence null
-        React.createElement('i',{className:'fa fa-retweet retweet-button',key:'retweet-button'},null),
+        React.createElement('span',{className:'likeCount',key:'countLikes'},[`${postEngagement.likes}`,[
+          React.createElement('i',{className:' fa fa-heart like-button',key:'likeButton'},null)
+          ]]), //creating a element inside  within the span called likeCount with both likes and the heart symbol
+          React.createElement('span',{className:'likeCount',key:'countLikes'},[`${postEngagement.reTweets}`,[
+            React.createElement('i',{className:'fa fa-retweet retweet-button',key:'retweet-button'},null)
+            ]]),
+        React.createElement('i',{className:'fa fa-retweet retweet-button',key:'retweet-button'},null), //if i does not return anything null , if it has a children pass it 
         React.createElement('i',{className:'fa fa-reply reply-button',key:'reply-button'},null),
         React.createElement('i',{className:'fa fa-ellipsis more-options',key:'more-button'},null)
       ]
