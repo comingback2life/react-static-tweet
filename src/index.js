@@ -22,7 +22,7 @@ return(
     }
     {
       React.createElement('div',{className:'content'},[
-        React.createElement(NameWithHandle,{key:'handleName',details:{authorName:`${userTweet.author.authorName}`,handle:`${userTweet.author.handle}`}}),
+        React.createElement(NameWithHandle,{key:'handleName',details:userTweet.author}),
         React.createElement(Message,{key:'message',message:`${userTweet.message}`}),
         React.createElement(CreateButtons,{key:'utilityButtons',postEngagement:{likes:`${userTweet.likes}`,reTweets:`${userTweet.reTweets}`,time:`${userTweet.postTime}`}})
 
@@ -47,12 +47,13 @@ function Message({message}){ //props are passed as an object hence, destructurin
   )
 }
 function NameWithHandle(args){ //props can also be accepted in object form and destructured inside the function
+  const{details} =args;
   return(
     React.createElement(
       'div',{className:'tweet-box'},[
-        React.createElement('span',{className:'userName',key:'yourName'},[`${args.details.authorName}`]),  //authorName has been destructered from args which is passed an object containing details which is also an object
+        React.createElement('span',{className:'userName',key:'yourName'},[`${details.authorName}`]),  //authorName has been destructered from args which is passed an object containing details which is also an object
         //each element in React should have a unique key.
-        React.createElement('span',{className:'handle', key:'yourHandle'},[` @${args.details.handle}`]),
+        React.createElement('span',{className:'handle', key:'yourHandle'},[` @${details.handle}`]),
       ]
     )
   )
@@ -66,7 +67,7 @@ function CreateButtons({postEngagement}){ //destructuring postEngagement passed 
         React.createElement('span',{className:'likeCount',key:'countLikes'},[`${postEngagement.likes}`,[
           React.createElement('i',{className:' fa fa-heart like-button',key:'likeButton'},null)
           ]]), //creating a element inside  within the span called likeCount with both likes and the heart symbol
-          React.createElement('span',{className:'likeCount',key:'countLikes'},[`${postEngagement.reTweets}`,[
+          React.createElement('span',{className:'likeCount',key:'countRetweet'},[`${postEngagement.reTweets}`,[
             React.createElement('i',{className:'fa fa-retweet retweet-button',key:'retweet-button'},null)
           ]]),
           /*
